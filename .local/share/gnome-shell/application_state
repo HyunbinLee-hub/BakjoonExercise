@@ -2,9 +2,9 @@
 <application-state>
   <context id="">
     <application id="org.gnome.Screenshot.desktop" score="4" last-seen="1647274599"/>
-    <application id="org.gnome.Nautilus.desktop" score="369" last-seen="1647299617"/>
+    <application id="org.gnome.Nautilus.desktop" score="374" last-seen="1647300133"/>
     <application id="gnome-control-center.desktop" score="26" last-seen="1647225985"/>
-    <application id="org.gnome.Terminal.desktop" score="14843" last-seen="1647299615"/>
+    <application id="org.gnome.Terminal.desktop" score="14900" last-seen="1647300179"/>
     <application id="org.gnome.gedit.desktop" score="70" last-seen="1647297877"/>
     <application id="update-manager.desktop" score="11" last-seen="1647251565"/>
   </context>
