@@ -2,12 +2,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <fcntl.h>
 #include <errno.h>
 #include "ssu_sindex.h"
 
-char filename[FILE_MAX];	// FILENAME 인자로 입력한 파일명
-char filepath[PATH_MAX];	// FILENAME 인자에 해당하는 파일의 절대경로
-char pathname[PATH_MAX];	// 입력한 시작 경로
+char fileName[FILE_MAX];	// FILENAME 인자로 입력한 파일명
+char filePath[PATH_MAX];	// FILENAME 인자에 해당하는 파일의 절대경로
+char startPath[PATH_MAX];	// 입력한 시작 경로
 
 // 프롬프트 출력 및 명렁어 find, exit, help 실행하는 함수
 void ssu_sindex(void)
@@ -45,18 +46,22 @@ void ssu_sindex(void)
 				continue;
 			}
 			// FILENAME, PATH의 존재 여부 확인
-			strcpy(filename, tokens[1]);
-			realpath(tokens[1], filepath);
-			if ((fp1 = fopen(filepath, "r")) == NULL) {
-				fprintf(stderr, "%s is not exist\n", tokens[1]);
+			strcpy(fileName, tokens[1]);		// 파일명만 비교용
+			realpath(tokens[1], filePath);		// 파일 경로 비교용
+			if ((fp1 = fopen(filePath, "r")) == NULL) {
+				fprintf(stderr, "%s is not exist\n", filePath);
 				continue;
 			}
-			realpath(tokens[2], pathname);
-			if ((fp2 = fopen(pathname, "r")) == NULL) {
-				fprintf(stderr, "%s is not exist\n", tokens[2]);
+			realpath(tokens[2], startPath);
+			if ((fp2 = fopen(startPath, "r")) == NULL) {
+				fprintf(stderr, "%s is not exist\n", startPath);
 				continue;
 			}
-			sindex_find(filepath, pathname);
+			printf("%s %s %s\n", fileName, filePath, startPath);
+			sindex_find(fileName, startPath);
+
+			fclose(fp1);
+			fclose(fp2);
 		}
 		else if (strcmp(tokens[0], "exit") == 0) {	// exit 명령어 실행
 			puts("Prompt End");
@@ -86,34 +91,55 @@ void sindex_help(void)
 void sindex_find(char *filename, char *pathname)
 {
 	struct stat statbuf;
-	off_t size;
+	off_t size = 0;
 	char curDir[PATH_MAX];	// 현재 디렉토리 경로
 	int depth = 0;
 	int index = 0;
+	char subCmd[CMD_LEN];
 	List list;
 	Info * pinfo;
 
 	lstat(filename, &statbuf);
 	// 리스트 초기화
 	ListInit(&list);
-
+	
 	// [FILENAME]의 파일을 [PATH]를 시작디렉토리로 하여 탐색
-	size = statbuf.st_size;
-	strcpy(curDir, pathname);
-	curDir[strlen(curDir)] = 0;
-	searchFiles(&list, pinfo, &size, curDir, depth);
+	if (S_ISDIR(statbuf.st_mode)) {
+		realpath(filePath, curDir);
+		size = sizeOfDir(curDir, depth, &size);
+		searchFiles(&list, pinfo, &size, curDir, depth);
+	}
+	else {
+		size = statbuf.st_size;
+		//strcpy(curDir, pathname);
+		searchFiles(&list, pinfo, &size, pathname, depth);
+	}
 
 	// 리스트 출력
-	printf("%5s %4s %-10s %-6s %-5s %-4s %-4s %-16s  %-16s  %-16s  %-64s",
+	printf("%5s %4s %-10s %-6s %-5s %-4s %-4s %-16s  %-16s  %-16s  %-30s",
 			"Index", "Size", "Mode", "Blocks", "Links", "UID", "GID", "Access", "Change", "Modify", "Path");
 	if (ListFirst(&list, &pinfo)) {
 		printf("%-5d ", index++);
 		show_fileInfo(&list, pinfo);
-		if (list.numOfData < 2)
-			printf("(None)\n");
+
 		while (ListNext(&list, &pinfo)) {
 			printf("%-5d ", index++);
 			show_fileInfo(&list, pinfo);
+		}
+	}
+
+	if (list.numOfData < 2) {
+		printf("(None)\n");
+	}
+	else {
+		while (1) {
+			printf(">> ");
+			fgets(subCmd, sizeof(subCmd), stdin);
+        	        // 엔터키만 입력한 경우: 프롬프트 재출력
+	                if (strcmp(subCmd, "\n") != 0 && atoi(subCmd)) {
+                        	subCmd[strlen(subCmd)-1] = '\0';
+                        	break;
+                	}
 		}
 	}
 
@@ -130,15 +156,55 @@ void sindex_find(char *filename, char *pathname)
 	return;
 }
 
+long int sizeOfDir(char *curDir, int depth, off_t *psum) 
+{
+	struct dirent *entry;
+	struct stat statbuf;
+	DIR *dir;
+	char newPath[PATH_MAX];
+	int len;
+	int fd;
+
+	if ((dir = opendir(curDir)) == NULL || chdir(curDir) < 0) {
+		fprintf(stderr, "opendir, chdir error for %s\n", curDir);
+		exit(1);
+	}
+
+	while ((entry = readdir(dir)) != NULL) {
+		if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
+			continue;
+		len = snprintf(newPath, sizeof(newPath)-1, "%s/%s", curDir, entry->d_name);
+		newPath[len] = 0;
+		if (entry->d_type == DT_DIR) {
+			*psum = sizeOfDir(newPath, depth+1, psum);
+		}
+		else if (entry->d_type == DT_REG) {
+			if ((fd = open(entry->d_name, O_RDONLY)) < 0) {
+				fprintf(stderr, "open error for %s\n", newPath);
+				continue;
+			}
+			if (lstat(entry->d_name, &statbuf) == 0) {
+				*psum += statbuf.st_size;
+			}
+			close(fd);
+		}
+	}
+
+	closedir(dir);
+	chdir("..");
+	return *psum;
+}
 // find 명령어 세부작업 1: 입력한 파일명에 해당하는 파일 검색
-void searchFiles(List * plist, Info * pinfo, off_t *psize, char *curDir, int depth)
+void searchFiles(List * plist, Info * pinfo, off_t *psize, char *path, int depth)
 {
 	DIR *dir;
 	struct dirent **nameList;
 	struct stat statbuf;
+	char curDir[PATH_MAX];
 	int nameCount;		 
 	int idx = 0;		// nameList의 인덱스 번호
-
+	
+	realpath(path, curDir);
 	// 파일 오픈
 	if ((dir = opendir(curDir)) == NULL) {
 		fprintf(stderr, "opendir error for %s\n", curDir);
@@ -147,7 +213,7 @@ void searchFiles(List * plist, Info * pinfo, off_t *psize, char *curDir, int dep
 	// 현재 디렉토리의 전체 파일 목록 불러오기(알파벳순 정렬)
 	if ((nameCount = scandir(curDir, &nameList, NULL, alphasort) < 0))
 	{
-		fprintf(stderr, "%s: scandir error\n", curDir);
+		fprintf(stderr, "%s: readdir error and scandir error\n", curDir);
 	        return;
 	}
 
@@ -156,54 +222,53 @@ void searchFiles(List * plist, Info * pinfo, off_t *psize, char *curDir, int dep
 	{
 		char newPath[PATH_MAX];
 		int len;
-		
-		lstat(nameList[idx]->d_name, &statbuf);		// 파일 종류 파악용 정보 불러오기
-		if (nameList[idx]->d_type == DT_DIR) {		// 디렉토리 파일인 경우
-			// 현재 디렉토리의 절대경로 저장
-			len = snprintf(newPath, sizeof(newPath)-1, "%s/%s", curDir, nameList[idx]->d_name);
-			newPath[len] = 0;
-			// 현재 디렉토리 및 상위 디렉토리 탐색 없음
-                        if (strcmp(nameList[idx]->d_name, ".") == 0 || strcmp(nameList[idx]->d_name, "..") == 0)
-                                continue;
-			if (strcmp(filename, nameList[idx]->d_name) == 0) {
-				len = snprintf(newPath, sizeof(newPath)-1, "%s/%s", curDir, nameList[idx]->d_name);
+		// 절대 경로로 변환
+		len = snprintf(newPath, sizeof(newPath)-1, "%s/%s", curDir, nameList[idx]->d_name);
+		newPath[len] = 0;
+		// 정규 파일인 경우
+		if (nameList[idx]->d_type == DT_REG) {
+			lstat(fileName, &statbuf);
+			if (!S_ISREG(statbuf.st_mode))
+				continue;
+			// 상대경로/절대경로가 동일한 파일인 경우
+			if (strcmp(fileName, nameList[idx]->d_name) == 0 || strcmp(filePath, newPath) == 0) {
+				// 경로 추가
+                        	len = snprintf(newPath, sizeof(newPath)-1, "%s/%s", curDir, nameList[idx]->d_name);
 				newPath[len] = 0;
-				pinfo = (Info *)malloc(sizeof(Info));
-				init_fileInfo(pinfo, newPath);
-				ListInsert(plist, pinfo);
-				break;
-			}
-			else {
-	                	searchFiles(plist, pinfo, psize, newPath, depth+1);	// 재귀를 통한 깊이우선탐색
+				// 리스트에 추가
+				if (*psize == statbuf.st_size) { 
+					pinfo = (Info *)malloc(sizeof(Info));
+					init_fileInfo(pinfo, newPath, *psize);
+					ListInsert(plist, pinfo);
+					break;
+				}
 			}
 		}
-		else if (nameList[idx]->d_type == DT_REG) {   // 정규 파일인 경우
-                         stat(nameList[idx]->d_name, &statbuf);  // 리스트에 추가될 정보 불러오기
-                         if (strcmp(filename, nameList[idx]->d_name) == 0 && *psize == statbuf.st_size) {     // 같은 이름의 파일 발견
-                                        // 절대 경로로 변환
-		 			len = snprintf(newPath, sizeof(newPath)-1, "%s/%s", curDir, nameList[idx]->d_name);
-                                        newPath[len] = 0;
-                                        // 리스트에 추가
+		else if (nameList[idx]->d_type == DT_DIR) {	// 디렉토리 파일인 경우
+			lstat(filePath, &statbuf);
+			// 현재 디렉토리를 경로에 추가
+			len = snprintf(newPath, sizeof(newPath)-1, "%s/%s", curDir, nameList[idx]->d_name);
+			newPath[len] = 0;
+			if (strcmp(nameList[idx]->d_name, ".") == 0 || strcmp(nameList[idx]->d_name, "..") == 0)
+                                continue;
+			if (S_ISDIR(statbuf.st_mode)) {
+				if (*psize == statbuf.st_size) {
 					pinfo = (Info *)malloc(sizeof(Info));
-                                        init_fileInfo(pinfo, newPath);
-                                        ListInsert(plist, pinfo);
-                                        break;
-                        }
-                }
-		else if (nameList[idx]->d_type == DT_LNK)
-			continue;
-	}	
+					init_fileInfo(pinfo, newPath, *psize);
+					ListInsert(plist, pinfo);
+					break;
+				}
+			}
+		   	searchFiles(plist, pinfo, psize, newPath, depth+1);	// 재귀를 통한 깊이우선탐색
+               	}
+
+	} 
 	closedir(dir);	// 파일 탐색 종료 후 디렉토리 닫음
-}
-long int GetDirectorySize(char *file) 
-{
-	long int sum = 0;
-	return sum;
 }
 
 // find 명령어 세부작업 2: 검색한 파일 속성 정보 출력
 // 리스트에 저장할 파일 속성 정보
-int init_fileInfo(Info * pinfo, char *file)
+int init_fileInfo(Info * pinfo, char *file, long int size)
 {
 	struct stat buf;
 	long int sum = 0;
@@ -216,7 +281,10 @@ int init_fileInfo(Info * pinfo, char *file)
 	}
 
 	// 파일 크기 정보 불러오기: 디렉토리면 하위 정규 파일들의 합 저장
-	pinfo->size = buf.st_size;
+	if (S_ISDIR(buf.st_mode))
+		pinfo->size = size;
+	else
+		pinfo->size = buf.st_size;
 	pinfo->modes = buf.st_mode;		// 파일 종류 및 접근 권한
 	pinfo->blockCnt = buf.st_blocks;	// 할당된 블록 수
 	pinfo->linkCnt = buf.st_nlink;		// 하드링크 개수

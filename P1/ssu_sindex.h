@@ -68,11 +68,11 @@ void sindex_find(char *filename, char *pathname);	// find 명령어 수행
 void sindex_help(void);		// help 명령어 수행
 
 // 지정한 파일 탐색 관련 함수
+long int sizeOfDir(char *currentDir, int depth, off_t *psize);
 void searchFiles(List * plist, Info * pinfo, off_t * psize, char *curDir, int depth);
 
 // 검색된 파일 속성값 저장, 갱신, 출력 관련
-int init_fileInfo(Info * pinfo, char *filename);	// 파일 속성 초기화/저장
-long int GetDirectorySize(char *filename);
+int init_fileInfo(Info * pinfo, char *filename, long int size);	// 파일 속성 초기화/저장
 void show_permission(mode_t * pmode);			// 파일 종류 및 접근 권한 정보 출력
 void show_fileInfo(List * plist, Info * pinfo);		// 파일 속성 출력
 void printTime(time_t * time);		// 연, 월, 일, 시, 분 출력
