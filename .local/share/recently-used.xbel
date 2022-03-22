@@ -3,7 +3,7 @@
       xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
       xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
 >
-  <bookmark href="file:///home/user/P1/a" added="2022-03-07T05:56:11Z" modified="2022-03-13T15:16:37Z" visited="1969-12-31T23:59:59Z">
+  <bookmark href="file:///home/user/P1/a" added="2022-03-07T05:56:11Z" modified="2022-03-22T04:00:18Z" visited="1969-12-31T23:59:59Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <mime:mime-type type="text/plain"/>
@@ -12,13 +12,13 @@
         </bookmark:groups>
         <bookmark:applications>
           <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2022-03-07T05:56:11Z" count="1"/>
-          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-13T15:16:37Z" count="3"/>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-22T04:00:18Z" count="30"/>
           <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2022-03-09T01:14:57Z" count="1"/>
         </bookmark:applications>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///home/user/P1/dir1/a" added="2022-03-07T05:56:24Z" modified="2022-03-07T06:00:51Z" visited="1969-12-31T23:59:59Z">
+  <bookmark href="file:///home/user/P1/dir1/a" added="2022-03-07T05:56:24Z" modified="2022-03-22T05:21:38Z" visited="1969-12-31T23:59:59Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <mime:mime-type type="text/plain"/>
@@ -26,7 +26,8 @@
           <bookmark:group>gedit</bookmark:group>
         </bookmark:groups>
         <bookmark:applications>
-          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-07T06:00:51Z" count="3"/>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-22T05:21:38Z" count="42"/>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2022-03-21T02:04:39Z" count="1"/>
         </bookmark:applications>
       </metadata>
     </info>
@@ -72,17 +73,21 @@
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///home/user/P1/aa" added="2022-03-09T01:14:57Z" modified="2022-03-09T01:15:13Z" visited="1969-12-31T23:59:59Z">
+  <bookmark href="file:///home/user/P1/aa" added="2022-03-09T01:14:57Z" modified="2022-03-21T02:26:40Z" visited="1969-12-31T23:59:59Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
         <bookmark:applications>
           <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2022-03-09T01:15:13Z" count="2"/>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-21T02:26:40Z" count="1"/>
         </bookmark:applications>
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///home/user/P1/ssu_sindex.c" added="2022-03-09T01:14:57Z" modified="2022-03-14T05:43:58Z" visited="1969-12-31T23:59:59Z">
+  <bookmark href="file:///home/user/P1/ssu_sindex.c" added="2022-03-09T01:14:57Z" modified="2022-03-17T09:10:14Z" visited="1969-12-31T23:59:59Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <mime:mime-type type="text/x-csrc"/>
@@ -91,7 +96,7 @@
         </bookmark:groups>
         <bookmark:applications>
           <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2022-03-09T01:15:08Z" count="2"/>
-          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-14T05:43:58Z" count="1"/>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-17T09:10:14Z" count="2"/>
         </bookmark:applications>
       </metadata>
     </info>
@@ -146,7 +151,7 @@
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///home/user/%EC%9E%84%EC%8B%9C" added="2022-03-14T09:17:41Z" modified="2022-03-14T12:37:53Z" visited="1969-12-31T23:59:59Z">
+  <bookmark href="file:///home/user/%EC%9E%84%EC%8B%9C" added="2022-03-14T09:17:41Z" modified="2022-03-21T05:17:41Z" visited="1969-12-31T23:59:59Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <mime:mime-type type="text/plain"/>
@@ -154,7 +159,7 @@
           <bookmark:group>gedit</bookmark:group>
         </bookmark:groups>
         <bookmark:applications>
-          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-14T12:37:53Z" count="3"/>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-21T05:17:41Z" count="7"/>
         </bookmark:applications>
       </metadata>
     </info>
@@ -283,7 +288,7 @@
       </metadata>
     </info>
   </bookmark>
-  <bookmark href="file:///home/user/Pictures/ssu_read4.png" added="2022-03-14T16:16:39Z" modified="2022-03-14T16:16:39Z" visited="1969-12-31T23:59:59Z">
+  <bookmark href="file:///home/user/Pictures/ssu_read4.png" added="2022-03-14T16:16:39Z" modified="2022-03-17T03:53:18Z" visited="1969-12-31T23:59:59Z">
     <info>
       <metadata owner="http://freedesktop.org">
         <mime:mime-type type="image/png"/>
@@ -292,6 +297,8 @@
         </bookmark:groups>
         <bookmark:applications>
           <bookmark:application name="GNOME Screenshot" exec="&apos;eog %u&apos;" modified="2022-03-14T16:16:39Z" count="1"/>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2022-03-17T03:53:17Z" count="1"/>
+          <bookmark:application name="Image Viewer" exec="&apos;eog %u&apos;" modified="2022-03-17T03:53:18Z" count="1"/>
         </bookmark:applications>
       </metadata>
     </info>
@@ -344,6 +351,523 @@
         </bookmark:groups>
         <bookmark:applications>
           <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-14T22:44:34Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/Makefile" added="2022-03-15T17:57:13Z" modified="2022-03-15T17:57:13Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-makefile"/>
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2022-03-15T17:57:13Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/Documents/gitpassword.txt" added="2022-03-16T01:03:31Z" modified="2022-03-17T07:37:26Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-17T07:37:26Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/Pictures/ssu_setbuf1.png" added="2022-03-17T01:28:52Z" modified="2022-03-17T01:28:52Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNOME Screenshot" exec="&apos;eog %u&apos;" modified="2022-03-17T01:28:52Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/Pictures/ssu_setbuf2.png" added="2022-03-17T02:52:24Z" modified="2022-03-17T02:52:24Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNOME Screenshot" exec="&apos;eog %u&apos;" modified="2022-03-17T02:52:24Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/Pictures/ssu_setvbuf.png" added="2022-03-17T03:06:39Z" modified="2022-03-17T03:06:39Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNOME Screenshot" exec="&apos;eog %u&apos;" modified="2022-03-17T03:06:39Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/Pictures/ssu_getc.png" added="2022-03-17T04:00:19Z" modified="2022-03-17T04:00:19Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNOME Screenshot" exec="&apos;eog %u&apos;" modified="2022-03-17T04:00:19Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/Pictures/ssu_ferror.png" added="2022-03-17T04:40:05Z" modified="2022-03-17T04:40:05Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNOME Screenshot" exec="&apos;eog %u&apos;" modified="2022-03-17T04:40:05Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/Pictures/ssu_ungetc.png" added="2022-03-17T05:01:58Z" modified="2022-03-17T05:01:58Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNOME Screenshot" exec="&apos;eog %u&apos;" modified="2022-03-17T05:01:58Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/Pictures/ssu_fgets1.png" added="2022-03-17T05:09:22Z" modified="2022-03-17T05:09:22Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNOME Screenshot" exec="&apos;eog %u&apos;" modified="2022-03-17T05:09:22Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/Pictures/ssu_fgets2.png" added="2022-03-17T05:29:07Z" modified="2022-03-17T05:29:07Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNOME Screenshot" exec="&apos;eog %u&apos;" modified="2022-03-17T05:29:07Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/Pictures/ssu_fputs.png" added="2022-03-17T05:45:39Z" modified="2022-03-17T05:45:39Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNOME Screenshot" exec="&apos;eog %u&apos;" modified="2022-03-17T05:45:39Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/Pictures/B4" added="2022-03-17T06:46:31Z" modified="2022-03-17T06:46:31Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="스크린샷" exec="&apos;gnome-screenshot %u&apos;" modified="2022-03-17T06:46:31Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/Pictures/B4/ssu_getc.png" added="2022-03-17T06:46:38Z" modified="2022-03-17T06:46:38Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNOME Screenshot" exec="&apos;eog %u&apos;" modified="2022-03-17T06:46:38Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/Pictures/B4/ssu_fgets1.png" added="2022-03-17T06:48:19Z" modified="2022-03-17T06:48:19Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="GNOME Screenshot" exec="&apos;eog %u&apos;" modified="2022-03-17T06:48:19Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/%EC%9D%B4%EB%A6%84%20%EC%97%86%EB%8A%94%20%EB%AC%B8%EC%84%9C%201" added="2022-03-17T14:05:20Z" modified="2022-03-17T14:05:20Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-17T14:05:20Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/2" added="2022-03-17T14:05:51Z" modified="2022-03-19T09:24:30Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-19T09:24:30Z" count="33"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/1" added="2022-03-17T14:06:03Z" modified="2022-03-21T12:08:04Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-21T12:08:04Z" count="28"/>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2022-03-19T12:07:03Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/1.txt" added="2022-03-17T14:25:49Z" modified="2022-03-22T13:48:48Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-22T13:48:48Z" count="2"/>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2022-03-17T14:26:52Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/2.txt" added="2022-03-17T14:25:57Z" modified="2022-03-22T13:50:38Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-22T13:50:38Z" count="5"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/P1/1" added="2022-03-19T12:05:51Z" modified="2022-03-19T15:31:50Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-19T15:31:50Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/P1/dir1/1" added="2022-03-19T12:08:56Z" modified="2022-03-20T04:21:48Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-20T04:21:48Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/a" added="2022-03-19T12:11:41Z" modified="2022-03-21T05:16:26Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-21T05:16:26Z" count="4"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/c" added="2022-03-20T07:49:14Z" modified="2022-03-20T07:49:14Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-20T07:49:14Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/P1/dir2/a" added="2022-03-20T10:04:37Z" modified="2022-03-21T05:36:06Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-21T05:36:06Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/P1/dir2/dir1/a" added="2022-03-20T10:04:48Z" modified="2022-03-22T05:21:47Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-22T05:21:47Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/P1/c" added="2022-03-21T02:26:47Z" modified="2022-03-21T05:36:01Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-21T05:36:01Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/P1/b" added="2022-03-21T02:30:10Z" modified="2022-03-21T04:02:13Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-21T04:02:13Z" count="7"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/P1/dir2/dir1/b" added="2022-03-21T02:33:39Z" modified="2022-03-22T05:21:19Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-22T05:21:19Z" count="8"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/P1/dir1/b" added="2022-03-21T02:53:43Z" modified="2022-03-22T05:21:21Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-22T05:21:21Z" count="6"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/%EC%9E%84%EC%8B%9C/a" added="2022-03-21T05:18:37Z" modified="2022-03-21T05:18:37Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-21T05:18:37Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/%EC%9E%84%EC%8B%9C/c" added="2022-03-21T05:31:13Z" modified="2022-03-21T05:31:13Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-21T05:31:13Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/%EC%9E%84%EC%8B%9C/d" added="2022-03-21T05:31:18Z" modified="2022-03-21T05:31:18Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-21T05:31:18Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/P1/dir2/dir1/d" added="2022-03-21T05:32:02Z" modified="2022-03-21T05:32:08Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-21T05:32:08Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/P1/dir1/c" added="2022-03-21T05:33:11Z" modified="2022-03-22T03:03:53Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-22T03:03:53Z" count="5"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/%EC%9E%84%EC%8B%9C/h" added="2022-03-21T05:35:03Z" modified="2022-03-21T05:35:03Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-21T05:35:03Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/%EC%9E%84%EC%8B%9C/i" added="2022-03-21T05:35:07Z" modified="2022-03-21T05:35:07Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-21T05:35:07Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/P1/dir2/dir1/c" added="2022-03-21T05:36:11Z" modified="2022-03-22T03:03:34Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-22T03:03:34Z" count="2"/>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2022-03-22T03:03:33Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/Documents/%EC%9E%84%EC%8B%9C" added="2022-03-21T15:26:38Z" modified="2022-03-21T15:26:38Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-21T15:26:38Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/P1/dir2/dir1/f" added="2022-03-21T15:58:30Z" modified="2022-03-21T15:58:30Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-21T15:58:30Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/user/3" added="2022-03-22T09:34:39Z" modified="2022-03-22T09:37:02Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2022-03-22T09:37:02Z" count="3"/>
         </bookmark:applications>
       </metadata>
     </info>

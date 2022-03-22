@@ -52,7 +52,7 @@ DIR *dir;
 				newPath[len] = 0;
 				// 리스트에 추가
                                	pinfo = (Info *)malloc(sizeof(Info));
-		    		init_fileInfo(pinfo, newPath);
+		    			init_fileInfo(pinfo, newPath);
                                	ListInsert(plist, pinfo);
 				break;
 			}

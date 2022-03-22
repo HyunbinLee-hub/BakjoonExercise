@@ -4,3 +4,5 @@ set cindent
 set autoread
 set hlsearch
 set backspace=eol,start,indent
+set noeol
+set noendofline
