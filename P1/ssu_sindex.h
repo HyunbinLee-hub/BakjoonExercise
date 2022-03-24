@@ -68,7 +68,6 @@ typedef struct _linkedlist
 	Node * cur;
 	Node * before;
 	int numOfData;
-	int (*comp)(char *path1, char *path2);
 } LinkedList;
 
 typedef LinkedList List;

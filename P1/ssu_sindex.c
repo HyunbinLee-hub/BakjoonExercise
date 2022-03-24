@@ -466,7 +466,6 @@ void ListInit(List * plist)
 	plist->head = (Node *)malloc(sizeof(Node));
 	plist->head->next = NULL;
 	plist->tail = plist->head;
-	plist->comp = NULL;
 	plist->numOfData = 0;
 }
 // 리스트 노드 추가
@@ -638,11 +637,15 @@ void CompareDir(char *origDir, char *compDir)
 void CompareFileData(char *original, char *comparision)
 {
 	FILE *fp1, *fp2;
-	int len1 = 0, len2 = 0;
+	int len1 = 0, len2 = 0, min;
 	int i, j;
-	int o1, o2;	// 원본 파일의 라인 범위 설정용
-	int n1, n2;	// 비교본 파일의 라인 범위 설정용
-	int maxLen;
+	char same[BUFFER_SIZE][BUFFER_SIZE];
+	int orig[BUFFER_SIZE];
+	int comp[BUFFER_SIZE];
+	int common[2][BUFFER_SIZE] = {0,};	// 0번: 원본, 1번: 인덱스
+	int idx, cnt;
+	int o1, n1;
+	int o2, n2;
 
 	fp1 = fopen(original, "r");
 	fp2 = fopen(comparision, "r");
@@ -659,70 +662,156 @@ void CompareFileData(char *original, char *comparision)
 	while (fgets(origBuf[len1], BUFFER_SIZE, fp1) != NULL) len1++;
 	while (fgets(compBuf[len2], BUFFER_SIZE, fp2) != NULL) len2++; 
 
-	// LCS(Longest Common Subsequence) 구하기(출력을 위한 밑작업)
-	for (i = 0; i < len1; i++) {		// 배열 초기화
-		for (j = 0; j < len2; j++)
-			LCS[i][j] = 0;
-	}
-
-	// LCS 연산 수행
-	maxLen = 0;
-	for (i = 1; i <= len1; i++) {	
-		for (j = 1; j <= len2; j++) {
-			if (strcmp(origBuf[i-1], compBuf[j-1]) == 0) 
+	// 비교본의 라인 중 원본과 같은 것을 찾는 작업 수행
+	idx = 0;
+	cnt = 0;
+	for (i = 0; i < len2; i++) 
+	{
+		for (j = 0; j < len1; j++)
+		{
+			// 라인의 데이터가 동일 
+			if (strcmp(origBuf[j], compBuf[i]) == 0)
 			{
-				LCS[i][j] = LCS[i-1][j-1]+1;
-				maxLen = (LCS[i][j] > maxLen) ? LCS[i][j] : maxLen;
+				// 한 라인에 대해 같은 문장이 여러 개
+				for (int k = 0; k < BUFFER_SIZE; k++)
+				{
+					// 이미 같은 라인이 존재하면 라인 번호 저장 안 함
+					if (strcmp(same[k], compBuf[i]) == 0) {
+						break;
+					}
+					else if (k == BUFFER_SIZE-1) // 이전에 저장된 공통 라인이 아닌 경우
+					{
+						if (i > 0 && i < len2)
+							strcpy(same[idx], compBuf[i]);
+						else
+							strcpy(same[idx], compBuf[i-1]);
+
+						comp[idx] = i;
+
+						if (orig[idx-1] > orig[idx])
+							orig[idx] = j;
+						else
+							orig[idx] = orig[idx-1];
+						idx++;
+					}
+				}
+				break;
 			}
 			else {
-				LCS[i][j] = 0;
+				if (strcmp(origBuf[j-1], compBuf[i-1]) == 0) {	// 직전의 라인이 서로 같은 경우
+					for (int k = 0; k < BUFFER_SIZE; k++) 
+					{
+						// 추출한 공통의 문자열 중 현재 라인에 해당하는 문자열 탐색
+						if (strcmp(same[k], compBuf[i]) == 0) {
+							break;
+						}
+						else if (k == BUFFER_SIZE-1)	// 새로운 문자열이면 공통 문자열에 추가
+						{
+							strcpy(same[idx], compBuf[i]);
+
+							comp[idx] = i-1;
+							if (orig[idx-1] > orig[idx] && idx > 0)
+								orig[idx-1] = orig[idx];
+							else
+								orig[idx] = j;
+
+							common[0][cnt] = orig[idx]+1;
+							common[1][cnt] = comp[idx]+1;
+							cnt++;
+						}
+						else;
+					}
+				}
+				else if (strcmp(origBuf[j+1], compBuf[i+1]) == 0) {
+					if (i == 0 && j > 0)
+						printf("%d %d\n", j, i);
+				}
 			}
 		}
 	}
 
-	for (i = 0; i <= len1; i++) {
-		for (j = 0; j <= len2; j++)
-			printf("%d ", LCS[i][j]);
-		printf("\n");
-	}
 
-	// 비교 결과 출력
-	for (i = 0; i < len1; i++) {
-		for (j = 0; j < len2; j++) {
-			if (strcmp(origBuf[i], compBuf[j]) == 0)	// 현재 비교중인 라인이 서로 같은 경우
-			{	
-				o1 = i;
-				n1 = j;
-				if ((o1 == 0 || o1 == len1-1) && n1 > o1) 	// 원본 내용 시작 시점
-				{
-					printf("%d %d a\n", o1, n1);
-				}
-				else if (o1 > 0 && (n1 == 0 || n1 == len2-1)) 	// 원본 내용 종료 시점
-				{
-					printf("%d %d d\n", o1, n1);
-				}
-				else if (LCS[o1][n1] >= 1 && LCS[o1+1][n1+1] <= LCS[o1][n1])
-				{
-					printf("%d %d s\n", o1, n1);
+	i = 0;
+	for (i = 0; i < cnt-1; i++) {
+		o1 = common[0][i];
+		n1 = common[1][i];
+
+		// 원본에 라인이 새로 추가된 경우
+		if (o1 == 0 && n1 > 0) 
+		{
+			n2 = n1;
+			while (strcmp(same[i], compBuf[n2]) != 0) n2++;
+			printf("%d%c\n", o1-1, 'a');
+			if (o1 == n2)
+				printf("%d\n", n2);
+			else
+				printf("%d,%d\n", o1, n2);
+			for (int k = o1-1; k < n2; k++)
+			{
+				printf("< %s", compBuf[k]);
+				if (k == len2-1) {
+					printf("\\ No newline at end of file\n");
 					break;
 				}
-				else;
 			}
-			else {
-				o1 = i;
-				n1 = j;
-				if (LCS[o1][n1] == maxLen && LCS[o1+1][n1+1] < LCS[o1][n1])	// 내용 변경 시작 라인
-				{
-					printf("%d %d c\n", o1, n1);
+		}
+		else if (o1 > 0 && n1 == 0)	// 원본에서 라인이 삭제된 경우
+		{
+			o2 = o1;
+			while (strcmp(same[i], compBuf[o2]) != 0) o2++;
+
+			if (o2 <= o1)
+				printf("%d", o1);
+			else
+				printf("%d,%d", o1, o2);
+			printf("%c", 'd');
+			printf("%d\n", n1);
+
+
+			for (int k = o1-1; k < o2; k++) 
+			{
+				printf("> %s", origBuf[k]);
+				if (k == len1-1) {
+					printf("\\ No newline at end of file\n");
+					break;
+				}
+			}
+		}
+		else {		// 일정 라인 범위에서 원본의 데이터가 변경된 경우
+			o2 = common[0][i+1];
+			n2 = common[1][i+1];
+		
+			if (o1 < o2 && (o2 > n1+1 || o2 < n1-1)) {	
+				printf("%d,%d%c%d,%d\n", o1, o2, 'c', n1+1, n2+1);
+			}
+
+			if (o1 == len1-1)
+				o2 = len1;
+			for (int k = o1; k <= o2; k++)
+			{
+				printf("< %s", origBuf[k]);
+				if (k == len1-1) {
+					printf("\\ No newline at end of file\n");
+					break;
+				}
+			}
+			printf("---\n");
+			for (int k = n1; k <= n2; k++)
+			{
+				printf("> %s", compBuf[k]);
+				if (k == len2-1) {
+					printf("\\ No newline at end of file\n");
 					break;
 				}
 			}
 		}
 	}
-	
+
+
 	fclose(fp1);
 	fclose(fp2);
 }
+
 // 배열 초기화 함수
 void ArrayInit(char (*arr)[BUFFER_SIZE]) 
 {
