@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="org.gnome.Nautilus.desktop" score="167.625" last-seen="1647957042"/>
-    <application id="org.gnome.eog.desktop" score="0" last-seen="1647489199"/>
-    <application id="org.gnome.Screenshot.desktop" score="1.25" last-seen="1647499699"/>
-    <application id="org.gnome.Terminal.desktop" score="21049.125" last-seen="1647968315"/>
-    <application id="yelp.desktop" score="0.125" last-seen="1647371049"/>
-    <application id="org.gnome.gedit.desktop" score="289.625" last-seen="1647957040"/>
-    <application id="gnome-control-center.desktop" score="4.375" last-seen="1647347075"/>
-    <application id="update-manager.desktop" score="0" last-seen="1647914621"/>
+    <application id="org.gnome.Nautilus.desktop" score="700.1923828125" last-seen="1649812835"/>
+    <application id="org.gnome.eog.desktop" score="0" last-seen="1649176796"/>
+    <application id="org.gnome.Screenshot.desktop" score="5.595703125" last-seen="1649680908"/>
+    <application id="org.gnome.Terminal.desktop" score="13434.9931640625" last-seen="1649812833"/>
+    <application id="yelp.desktop" score="0" last-seen="1649704184"/>
+    <application id="org.gnome.gedit.desktop" score="125.6689453125" last-seen="1649774348"/>
+    <application id="gnome-control-center.desktop" score="1.625" last-seen="1649645615"/>
+    <application id="update-manager.desktop" score="0" last-seen="1649809842"/>
   </context>
 </application-state>
